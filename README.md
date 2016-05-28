@@ -11,10 +11,10 @@ The original Scala TextTeaser can still be accessed [here](https://github.com/Mo
 
 ### Installation
 
+    which virtualenv || sudo pip install virtualenv
     virtualenv --setuptools ~/.textteaser
-    . ~/.textteaser/bin/activate
-    pip install --upgrade pip setuptools
-    pip install git+https://github.com/WyseNynja/textteaser.git#egg=textteaser
+    ~/.textteaser/bin/pip install --upgrade pip setuptools
+    ~/.textteaser/bin/pip install git+https://github.com/WyseNynja/textteaser.git#egg=textteaser
     mkdir -p ~/bin
     ln -sfv ~/.textteaser/bin/textteaser-cli ~/bin/
     ln -sfv ~/.textteaser/bin/textteaser-loop ~/bin/
