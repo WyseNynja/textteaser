@@ -28,6 +28,7 @@ def get_input():
         except EOFError:
             pass
 
+    title = title.decode("ascii", "ignore")
     text = text.decode("ascii", "ignore").replace("\n", " ")
 
     return {
@@ -50,8 +51,13 @@ def main():
     result = summarizer.sortScore(result)
     result = summarizer.sortSentences(result[:30])
 
+    # todo: paginate this output
+    print
+    print '*' * 80
+    print
+    print '*' * 80
+    print
     print 'Summary of %s:' % input_dict['title']
-
     for r in result:
         print
         print r['sentence']
