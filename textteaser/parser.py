@@ -53,6 +53,9 @@ class Parser:
             return 0
 
     def getTitleScore(self, title, sentence):
+        if not len(title):
+            return 0
+
         titleWords = self.removeStopWords(title)
         sentenceWords = self.removeStopWords(sentence)
         matchedWords = [word for word in sentenceWords if word in titleWords]
