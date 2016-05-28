@@ -56,7 +56,6 @@ def main():
 
     # todo: paginate this output
     click.clear()
-    summary = "\n" + '*' * 80 + "\n"
     summary += "Summary of '%s':\n\n" % input_dict['title']
     for r in result:
         summary += r['sentence'] + "\n\n"
