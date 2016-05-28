@@ -1,1 +1,1 @@
-recursive-include textteaser/trainer *
+include textteaser/trainer/*
