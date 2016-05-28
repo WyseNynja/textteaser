@@ -3,22 +3,37 @@ TextTeaser
 
 TextTeaser is an automatic summarization algorithm.
 
-This is now the official version of TextTeaser. Future developments of TextTeaser will be in this repository.
+This is now the official version of TextTeaser. Future developments of
+TextTeaser will be in this repository.
 
 The original Scala TextTeaser can still be accessed [here](https://github.com/MojoJolo/textteaser).
 
+
 ### Installation
 
-    >>> git clone https://github.com/DataTeaser/textteaser.git
-    >>> pip install -r textteaser/requirements.txt
+    virtualenv --setuptools ~/.textteaser
+    . ~/.textteaser/bin/activate
+    pip install --upgrade pip setuptools
+    pip install git+https://github.com/WyseNynja/textteaser.git#egg=textteaser
+    ln -sfv ~/.textteaser/bin/textteaser-cli ~/bin/
+    ln -sfv ~/.textteaser/bin/textteaser-loop ~/bin/
+
 
 ### How to Use
 
-    >>> from textteaser import TextTeaser
-    >>> tt = TextTeaser()
-    >>> tt.summarize(title, text)
+To summarize a single document:
 
-You can also test TextTeaser by running `python test.py`.
+    textteaser-cli
+
+To keep summarizing in a loop:
+
+    textteaser-loop
+
+
+### How to test
+
+    python test.py
+
 
 ### Commercial Support
 
