@@ -15,6 +15,7 @@ The original Scala TextTeaser can still be accessed [here](https://github.com/Mo
     . ~/.textteaser/bin/activate
     pip install --upgrade pip setuptools
     pip install git+https://github.com/WyseNynja/textteaser.git#egg=textteaser
+    mkdir -p ~/bin
     ln -sfv ~/.textteaser/bin/textteaser-cli ~/bin/
     ln -sfv ~/.textteaser/bin/textteaser-loop ~/bin/
 
@@ -23,11 +24,11 @@ The original Scala TextTeaser can still be accessed [here](https://github.com/Mo
 
 To summarize a single document:
 
-    textteaser-cli
+    ~/bin/textteaser-cli
 
 To keep summarizing in a loop:
 
-    textteaser-loop
+    ~/bin/textteaser-loop
 
 
 ### How to test
