@@ -2,6 +2,8 @@ import os
 
 from textteaser.summarizer import Summarizer
 
+import click
+
 
 def sanitize_lines(text):
     r"""Remove unnecessary \n."""
@@ -16,12 +18,13 @@ def get_input():
         title = content[0]
         text = ' '.join(content[-(len(content) - 1):])
     else:
-        title = raw_input('Title: ')
-        print
+        try:
+            title = raw_input('Title: ')
+        except EOFError:
+            raise KeyboardInterrupt
 
+        print "\nText ([ctrl + d] to stop):"
         text = ""
-
-        print 'Text ([ctrl + d] to stop):'
         try:
             while True:
                 text += raw_input() + " "
@@ -52,17 +55,16 @@ def main():
     result = summarizer.sortSentences(result[:30])
 
     # todo: paginate this output
-    print
-    print '*' * 80
-    print
-    print '*' * 80
-    print
-    print 'Summary of %s:' % input_dict['title']
+    click.clear()
+    summary = "\n" + '*' * 80 + "\n"
+    summary += "Summary of '%s':\n\n" % input_dict['title']
     for r in result:
-        print
-        print r['sentence']
-        # print r['totalScore']
-        # print r['order']
+        summary += r['sentence'] + "\n\n"
+
+    summary += "Press [q] to exit."
+
+    click.echo_via_pager(summary)
+    click.clear()
 
 
 def loop_main():
@@ -70,9 +72,6 @@ def loop_main():
     try:
         while True:
             main()
-            print
-            print "*" * 80
-            print
     except KeyboardInterrupt:
         print "\n\nGoodbye!"
 
