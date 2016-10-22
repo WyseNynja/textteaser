@@ -24,7 +24,7 @@ Press [ctrl + d] on a blank line when done entering your text to see the summary
 
 Press [space] to read the full summary if it is too long.
 
-Press [q] to stop reading the summary and go to the next
+Press [q] to stop reading the summary and enter the next article.
 
 
 ## Developing
