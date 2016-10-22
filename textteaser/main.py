@@ -6,11 +6,12 @@ import click
 
 
 def sanitize_lines(text):
-    r"""Remove unnecessary \n."""
+    """Remove unnecessary newlines."""
     return [c.replace('\n', '') for c in text if c != '\n']
 
 
 def get_input():
+    """Read text to summarize."""
     if os.path.exists('input.txt'):
         with open('input.txt') as f:
             content = sanitize_lines(f.readlines())
@@ -41,6 +42,7 @@ def get_input():
 
 
 def main():
+    """Summarize text."""
     # todo: use argparse or click or something like that
     input_dict = get_input()
 
@@ -67,6 +69,7 @@ def main():
 
 
 def loop_main():
+    """Keep prompting for text to summarize."""
     print "Press [ctrl + c] to exit.\n"
     try:
         while True:

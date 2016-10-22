@@ -1,44 +1,44 @@
-TextTeaser
-=============
+# TextTeaser
 
 TextTeaser is an automatic summarization algorithm.
 
 I've added a simple command line entrypoint for easy summarizing.
 
 
-### Installation
+## Quick Setup with Docker
 
-    which virtualenv || sudo pip install virtualenv
-    virtualenv --setuptools ~/.textteaser
-    ~/.textteaser/bin/pip install -U pip setuptools
-    ~/.textteaser/bin/pip install -U git+https://github.com/WyseNynja/textteaser.git#egg=textteaser
-    mkdir -p ~/bin
-    ln -sfv ~/.textteaser/bin/textteaser-cli ~/bin/
-    ln -sfv ~/.textteaser/bin/textteaser-loop ~/bin/
+1. Install Docker from https://www.docker.com/
 
+2. Run the following command in your terminal:
+```bash
+docker run --rm -it bwstitt/textteaser
+```
 
-### Upgrade
+3. Follow the prompts
 
-    ~/.textteaser/bin/pip install -U pip setuptools
-    ~/.textteaser/bin/pip install -U git+https://github.com/WyseNynja/textteaser.git#egg=textteaser
+Entering a title helps inform the summarizer what is imporant.
 
+Press [ctrl + c] to exit at any time.
 
-### How to Use
+Press [ctrl + d] on a blank line when done entering your text to see the summary.
 
-To summarize a single document:
+Press [space] to read the full summary if it is too long.
 
-    ~/bin/textteaser-cli
-
-To keep summarizing in a loop:
-
-    ~/bin/textteaser-loop
+Press [q] to stop reading the summary and go to the next
 
 
-### How to test
+## Developing
 
-    python test.py
+Automatically upgrading requirements.txt:
+
+```bash
+pip install pip-tools
+pip-compile requirements.in
+```
 
 
-### Commercial Support
+## Todo
 
-Commercial support for TextTeaser or custom summarizers can be provided by [DataTeaser](http://www.datateaser.com/?textteaser).
+ * [ ] Automatically save full text as it is entered
+ * [ ] Automatically save summaries as they are created
+ * [ ] Support entering a URL
