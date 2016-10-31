@@ -9,12 +9,19 @@ I've added a simple command line entrypoint for easy summarizing.
 
 1. Install Docker from https://www.docker.com/
 
-2. Run the following command in your terminal:
-```bash
-docker run --rm -it bwstitt/textteaser
-```
+2. Add the following to your dotfiles:
 
-3. Follow the prompts
+  ```bash
+  alias textteaser="docker run --rm -it bwstitt/textteaser"
+  ```
+
+3. Run this in your terminal:
+
+  ```bash
+  textteaser
+  ```
+
+4. Follow the prompts to summarize text
 
 Entering a title helps inform the summarizer what is imporant.
 
